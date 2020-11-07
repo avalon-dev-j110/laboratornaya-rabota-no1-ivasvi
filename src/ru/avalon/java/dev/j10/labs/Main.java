@@ -49,7 +49,7 @@ public class Main {
         ivanov.address.setApartment("123");        
         ivanov.address.setIndex(654321);
 
-        smith.passport.printPassport();
+
         System.out.println("===========================");
         
         smith.passport.setBirthday("01.01.1950");
@@ -58,13 +58,14 @@ public class Main {
         smith.passport.setRelease_date("01.01.1985");
         smith.passport.setOrganization("123 отдел полиции какого-то города");
 
+        smith.passport.printPassport();        
         smith.address.setCountry("USA");        
         smith.address.setCity("N-Y");
         smith.address.setStreet("Lenina ave.");
-        smith.address.setHouse("123");
+        smith.address.setHouse("124");
         smith.address.setApartment("31");        
         smith.address.setIndex(987654);        
-        
+        System.out.println("===========================");        
         /*
          * TODO(Студент): Создайте несколько строковых переменных:
          *
