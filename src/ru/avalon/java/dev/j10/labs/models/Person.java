@@ -65,7 +65,7 @@ public class Person {
          * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
          */
         
-        return String.valueOf("Адрес: " + address.getIndex()) + ", " + address.getCountry() + ", " + address.getCity()+ ", " + address.getStreet()+ ", " + address.getHouse()+ "-" + address.getApartment();
+        return "Адрес: " + String.valueOf(address.getIndex()) + ", " + address.getCountry() + ", " + address.getCity()+ ", " + address.getStreet()+ ", " + address.getHouse()+ "-" + address.getApartment();
     }
     
     public Person(String name, String surname, String patronymic, String second_name)
