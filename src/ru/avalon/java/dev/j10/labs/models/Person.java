@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+
 /**
  * Представление о человеке.
  * <p>
@@ -11,7 +13,9 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Person {
-
+    
+    public Passport passport;
+    public Address address;
     /**
      * Возврвщает полное имя человека.
      * <p>
@@ -29,10 +33,22 @@ public class Person {
      *
      * @return имя человека в виде строки.
      */
-    public String getFullName() {
+    public String getFullName() 
+    {
         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
+        String fullname;
+        if (!passport.getName().equals("")&&!passport.getSurname().equals("")) 
+        {
+            fullname = passport.getName()
+                    +((!passport.getSecond_name().equals("")&&passport.getPatronymic().equals("")) ? " " + passport.getSecond_name().substring(0,1)+".":"") //Если есть вторе имя, но нет отчества
+                    + " " + passport.getSurname()
+                    + ((!passport.getPatronymic().equals("")&&passport.getSecond_name().equals("")) ? (" " + passport.getPatronymic()):"") //Если есть отчество, но нет второго имени
+                    ; 
+            return fullname;
+        }
+
         return null;
     }
 
@@ -48,6 +64,26 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
          */
-        return null;
+        
+        return "Адрес: " + String.valueOf(address.getIndex()) + ", " + address.getCountry() + ", " + address.getCity()+ ", " + address.getStreet()+ ", " + address.getHouse()+ "-" + address.getApartment();
     }
+    
+    public Person(String name, String surname, String patronymic, String second_name)
+    {
+        passport = new Passport(name, surname, patronymic, second_name);
+        address = new Address();
+    }
+    
+     public Person(String name, String surname)
+    {
+        passport = new Passport(name, surname);
+        address = new Address();
+    }   
+    
+     public Person()
+     {
+         passport = new Passport("","");
+         address = new Address();
+     }
+    
 }
